@@ -1,0 +1,901 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Основное объявление шрифта */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Regular.woff2') format('woff2'),
+       url('/fonts/SF-Pro-Display-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ----------------------------------
+   ОБЩИЕ СТИЛИ (DESKTOP)
+---------------------------------- */
+/* Базовые настройки */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 
+               'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+  background: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-left a, 
+.order-button, 
+.headline-row h1, 
+.left, .right,
+.description {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 
+  'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+font-weight: 400;
+}
+
+
+.headline-row h1 {
+  font-weight: 400; /* Полужирный для заголовков */
+}
+
+/* Хедер */
+.header {
+  width: 100%;
+  padding: 20px 50px;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-left a {
+  margin-right: 30px;
+  text-decoration: none;
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: transform 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+.nav-right {
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 101.336%; /* 28.374px */
+  display: flex;
+  align-items: center;
+}
+
+.order-button {
+  background-color: #FF3C00;
+  border: none;
+  padding: 10px 20px;
+  font-weight: madium;
+  cursor: pointer;
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%; /* 28.374px */
+  letter-spacing: -0.84px;
+}
+
+/* Контент */
+.content {
+  padding: 40px 50px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.headline {
+  position: relative;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* Градиент на заднем плане */
+.gradient-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 450px;
+  aspect-ratio: 101/81;
+  flex-shrink: 0;
+  border-radius: 868px;
+background: radial-gradient(50% 50% at 50% 50%, #ff4c24b7 0%, rgba(0, 0, 0, 0.00) 100%);
+  z-index: 0;
+}
+
+
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Начинаем с 30px ниже */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Конечная позиция — по центру */
+  }
+}
+
+.headline-row {
+  display: flex;
+  justify-content: center;
+  gap: 280px;
+  margin-bottom: -15px;
+}
+
+.headline-row h1 {
+  font-size: 82px;
+  font-weight: 400;
+  line-height: 101.336%;
+  letter-spacing: -2.46px;
+  opacity: 0;
+  animation: fadeInFromBottom 1s ease-out forwards;
+}
+
+.headline-row:last-child h1 {
+  animation-delay: 0.5s;
+}
+
+.headline-row-italic {
+  display: flex;
+  justify-content: center;
+  gap: 400px;
+}
+
+.italic {
+  color: #FFF;
+  font-family: Fraunces;
+  font-size: 82px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 101.336%; /* 83.095px */
+  letter-spacing: -2.46px;
+}
+
+
+/* Картинка */
+.image-block {
+  position: relative;
+  z-index: 2;
+  width: 100%; /* Ширина блока на 100% */
+  max-width: 505px; /* Максимальная ширина, чтобы не выходило за пределы */
+  height: 100%; /* Высота блока на 100% */
+  max-height: 405px; /* Максимальная высота, чтобы не выходило за пределы */
+  flex-shrink: 0;
+  aspect-ratio: 101 / 81;
+  background: url('/images/design-code.svg') rgba(211, 211, 211, 0) center / cover no-repeat; /* Центрируем изображение и используем cover для адаптации */
+  background-position: center; /* Центрируем изображение */
+  background-size: cover; /* Изображение покрывает весь блок */
+  background-repeat: no-repeat;
+  border-radius: 0; /* Если нужно скругление, укажи здесь */
+  margin-left: auto;
+  margin-right: auto; /* Чтобы центрировать */
+  margin-top: -70px;
+}
+
+
+
+/* Описание */
+.description {
+  margin: 15px auto 0; /* Центрируем с автоматическими отступами по бокам */
+  max-width: 1028px; /* Заменяем width на max-width для адаптивности */
+  width: 100%; /* Занимает всю доступную ширину */
+  padding: 0 20px; /* Добавляем отступы по бокам */
+  box-sizing: border-box; /* Учитываем padding в ширине */
+  color: #999;
+text-align: center;
+font-family: "SF Pro Display";
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: 101.336%; /* 32.427px */
+letter-spacing: -0.96px;
+}
+
+
+
+
+.about {
+  margin-top: 157px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;         
+}
+
+.left {
+text-align: center;
+color: #FF4C24;
+font-family: "SF Pro Display";
+font-size: 72px;
+font-style: normal;
+font-weight: 700;
+line-height: 101.336%; /* 72.962px */
+letter-spacing: -2.16px;
+}
+
+.us {
+  display: flex;
+  justify-content: center;
+  margin-top: -50px;
+  margin-bottom: 50px;
+  z-index: 1;          
+}
+
+.right {
+color: #FFF;
+font-family: Fraunces;
+font-size: 66px;
+font-style: italic;
+font-weight: 400;
+line-height: 101.336%; /* 66.882px */
+letter-spacing: -1.98px;
+}
+
+
+
+.svet {
+  position: absolute;
+  margin-top: -1050px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 241px;
+}
+
+
+.back_svet {
+  position: absolute;
+  margin-top: -1000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.text_back {
+  width: 95%;
+  position: absolute;
+  margin-top: -790px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  color: rgba(0, 0, 0, 0.466);
+  font-family: Consolas;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 77%; /* 12.32px */
+  letter-spacing: -0.48px;
+}
+
+.left-text {
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 77%;
+  letter-spacing: -3.84px;
+  width: 40%;
+  z-index: 1;
+}
+
+.right-block {
+  width: 545px;
+  height: 483px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(0.8500000238418579px);
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-left: auto;  /* Ключевое изменение: прижимает блок к правому краю */
+}
+
+.right-text {
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 101.336%;
+  letter-spacing: -0.96px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.price-container {
+  padding: 40px 50px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.price-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.price-title {
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 195px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 101.336%;
+  letter-spacing: -5.85px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* Стили для всех price-item */
+.price-item {
+  width: 430px;
+  height: 244px;
+  background: #161616;
+  position: relative; /* Для позиционирования внутренних элементов */
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Специальные стили для первого элемента */
+.first-item {
+  margin-left: auto;
+}
+
+.price-text {
+  color: #FFF;
+  font-family: "SF Pro Display";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service {
+  font-size: 32px;
+  padding: 30px;
+  margin: 0;
+  align-self: flex-start; /* Текст услуги слева */
+}
+
+.cost {
+  font-size: 20px;
+  color: #FF4C24;
+  margin: 0;
+  margin-top: auto; /* Прижимаем цену вниз */
+  align-self: flex-end; /* Прижимаем цену вправо */
+  padding: 0 30px 30px 0; /* Отступы: справа 30px, снизу 30px */
+}
+
+/* Стили для сетки */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* Стили для последнего элемента */
+.last-item {
+  position: relative;
+}
+
+.price-icon {
+  position: absolute;
+  right: 30px; /* Отступ справа 30px */
+  bottom: 30px; /* Отступ снизу 30px */
+  width: 50px;
+  height: 50px;
+}
+
+
+
+
+.describe {
+  margin-top: 30px;
+  color: #999;
+  text-align: center;
+  font-family: "SF Pro Display";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 101.336%; /* 32.427px */
+  letter-spacing: -0.96px;
+}
+
+
+
+.portfolio {
+  position: relative;
+  margin-top: 100px;
+  overflow: visible; /* Разрешаем выход за пределы */
+}
+
+.p_text h2 {
+  text-align: center;
+  padding: 50px;
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 101.336%; /* 72.962px */
+  letter-spacing: -2.16px;
+}
+
+/* Линии */
+.portfolio::before,
+.portfolio::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  left: -50px; /* Выводим за левую границу */
+  right: -50px; /* Выводим за правую границу */
+  height: 1px;
+}
+
+.portfolio::before { /* верхняя линия */
+  top: 0;
+}
+
+.portfolio::after { /* нижняя линия */
+  bottom: 0;
+}
+
+.vertical-line {
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+}
+
+.v1 { left: 20%; }
+.v2 { left: 40%; }
+.v3 { left: 60%; }
+.v4 { left: 80%; }
+
+/* Контейнер с книгами */
+.shelf {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.book {
+  background: #D7DAE9;
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform-origin: bottom center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+
+/* Конкретные книги */
+.iloma {
+  color: #000;
+font-family: "SF Pro Display";
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: 101.336%; /* 32.427px */
+letter-spacing: -0.96px;
+  width: 33px;
+  height: 682px;
+  gap: 00px;
+}
+
+
+.fbmk {
+  color: #000;
+  font-family: "SF Pro Display";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%; /* 32.427px */
+  letter-spacing: -0.96px;
+  width: 97px;
+  height: 504px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+}
+
+.bseu90 {
+  width: 123px;
+  height: 755px;
+}
+
+.fde {
+  width: 87px;
+  height: 591px;
+}
+
+.family {
+  width: 81px;
+  height: 433px;
+}
+
+.mb {
+  width: 49px;
+  height: 482px;
+  margin-left: 10px;
+  background-color: #00000000;
+  margin-bottom: 0px;
+  
+}
+
+.manikuroff {
+  margin-left: 25px;
+  width: 552px;
+  height: 62px;
+  writing-mode: horizontal-tb;
+  transform: none;
+}
+
+
+.footer {
+  margin-top: 35px;
+  height: 453px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.footer-nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+}
+
+.nav-left, .nav-fr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.nav-social {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+  right: 40px;
+  top: 0;
+}
+
+
+.nav-left h2,
+.nav-fr h2 {
+  color: rgba(255, 255, 255, 0.20);
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%;
+  letter-spacing: -0.84px;
+}
+
+.nav-left a,
+.nav-fr a {
+  text-decoration: none;
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.nav-social a {
+  text-align: right;
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%;
+  letter-spacing: -1.56px;
+  text-decoration: none;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.footer-bottom {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.creanise-text {
+  color: rgba(255, 255, 255, 0.20);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "SF Pro Display";
+  font-size: 270px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 101.336%;
+  letter-spacing: -6.24px;
+  margin: 0;
+  z-index: 1;
+}
+
+.copyright {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  color: #FFF;
+  font-family: "SF Pro Display";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 101.336%;
+  letter-spacing: -0.84px;
+}
+
+
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .nav-left a, 
+  .order-button, 
+  .headline-row h1, 
+  .description {
+    font-family: 'SF Pro Display Custom', -apple-system, BlinkMacSystemFont, 
+                'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
+
+ /* Добавляем специфичные настройки для iOS */
+ @supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  
+}
+
+.nav-left a,
+.order-button,
+.description {
+  font-family: 'SF Pro Display Custom', -apple-system, sans-serif;
+  font-weight: 300;
+}
+
+.headline-row h1 {
+  font-family: 'SF Pro Display Custom', -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+  .header, .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+  }
+
+  .nav {
+    align-items: flex-start;
+  }
+
+  .nav-left {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-left a {
+    font-size: 22px;
+  }
+
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .order-button {
+    font-size: 22px;
+    width: auto;
+    text-align: center;
+  }
+
+
+  .order-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .headline {
+    padding: 80px 0; /* Убираем горизонтальные отступы */
+    text-align: left; /* Выравнивание по левому краю */
+  }
+
+  .headline-row {
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    width: 100%; /* Занимаем всю ширину */
+    padding: 0; /* Добавляем отступы от краев */
+    margin-bottom: 5px;
+  }
+
+  .headline-row:not(.second) {
+    gap: 78px; /* Уменьшаем отступ для первого ряда */
+  }
+
+  .headline-row .left {
+    font-size: 42px;
+    text-align: left;
+    margin-right: 0;
+  }
+
+  .headline-row .right {
+    font-size: 42px;
+    text-align: right;
+    margin-left: 0;
+  }
+
+  .headline-row.second {
+
+    gap: 0;
+    margin-top: -15px;
+  }
+
+
+  .headline-row h1 {
+    color: #FFF;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 101.336%; /* 32.427px */
+    letter-spacing: -0.96px;
+  }
+
+.headline-row.second h1 {
+  margin: 0; /* <--- убираем отступы и тут */
+}
+
+.headline-row.second {
+  gap: 0;
+  margin-top: -10px;
+}
+
+.headline-text h1 {
+    font-size: 45px;
+  }
+
+
+  .left, .right {
+    font-size: 45px; /* Уменьшаем шрифт для мобилки */
+  }  
+
+  .image-block {
+    width: 300px; /* Уменьшили ширину с 365px */
+    height: 245px; /* Уменьшили высоту с 297px */
+    flex-shrink: 0;
+    aspect-ratio: 300/245; /* Обновили пропорции */
+    margin: -20px auto 0; /* Настроили отступы */
+    background-size: contain; /* Изменили на contain для лучшего отображения */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+  .description {
+    margin-top: 10px;
+    color: #999;
+    text-align: center;
+    justify-content: center;
+    font-family: "SF Pro Display";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 101.336%; /* 22.294px */
+    letter-spacing: -0.66px;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .image-block img {
+    width: 100%; /* Теперь изображение занимает всю ширину блока */
+    height: auto;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .headline-row .left, 
+  .headline-row .right {
+    font-size: 6vw;
+  }
+  .headline-row {
+    gap: 10px;
+  }
+}
